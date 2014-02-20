@@ -16,7 +16,7 @@ This lab will review downloading and uncompressing files, and it will get us set
 Write the command that you used to do this below:
 ----------
 
-
+cd ~
 
 ==========
 2. Prove that you're in your home directory.
@@ -24,7 +24,7 @@ Write the command that you used to do this below:
 Write the command that you used to do this - as well as its output - below :
 ----------
 
-
+pwd
 
 ==========
 3. Are there any directories or files in your directory that have the word mtec1002 in it?
@@ -32,6 +32,10 @@ Write the command that you used to do this - as well as its output - below :
 Write the command(s) that you used to determine this - as well as its output - below:
 ----------
 
+ls
+Desktop		Library		My Song.band	Sites		vms
+Documents	Movies		Pictures	Things
+Downloads	Music		Public		VirtualBox VMs
 
 
 ==========
@@ -66,6 +70,10 @@ This command should have a *flag* to specify the output file.  MAKE SURE TO NAME
 Write the command(s) that you used to download this file - as well as its output - below:
 ----------
 
+curl -o mtec1002-lab-03.tar.gz http://foureyes.github.io/mtec1002-spring2014/labs/03/mtec1002-lab-03.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  898k  100  898k    0     0  1531k      0 --:--:-- --:--:-- --:--:-- 1532k
 
 
 ==========
@@ -74,7 +82,12 @@ Write the command(s) that you used to download this file - as well as its output
 Write the command(s) that you used to do this - as well as its output - below:
 ----------
 
-
+ tar -xvf mtec1002-lab-03.tar.gz
+x mtec1002-lab-03/
+x mtec1002-lab-03/._.DS_Store
+x mtec1002-lab-03/.DS_Store
+x mtec1002-lab-03/books/
+[etc]
 
 ==========
 8.  You should now have a directory called mtec1002-lab-03 in your home directory.  Verify that this directory exists.
@@ -89,7 +102,12 @@ Otherwise...
 Write the command(s) that you used to do this - as well as its output - below:
 ----------
 
-
+ls
+Desktop			Music			Things
+Documents		My Song.band		VirtualBox VMs
+Downloads		Pictures		mtec1002-lab-03
+Library			Public			mtec1002-lab-03.tar.gz
+Movies			Sites			vms
 
 ==========
 9.  What directories are in the mtec1002-lab-03 folder?
@@ -97,6 +115,9 @@ Write the command(s) that you used to do this - as well as its output - below:
 Write the command(s) that you used to determine this - as well as its output - below:
 ----------
 
+cd mtec1002-lab-03
+ent-v321-010:mtec1002-lab-03 student$ ls
+books	logs	web
 
 
 ==========
@@ -105,7 +126,10 @@ Write the command(s) that you used to determine this - as well as its output - b
 Write the command(s) (including going home) that you used to do this below:
 ----------
 
-
+ent-v321-010:mtec1002-lab-03 student$ cd ~
+ent-v321-010:~ student$ cd mtec1002-lab-03/books/science-fiction
+ent-v321-010:science-fiction student$ pwd
+/Users/student/mtec1002-lab-03/books/science-fiction
 
 ==========
 11.  Write the files that are in the science fiction directory below.
@@ -113,6 +137,8 @@ Write the command(s) (including going home) that you used to do this below:
 Write the command(s) that you used to do this - as well as its output - below:
 ----------
 
+ent-v321-010:science-fiction student$ ls
+pg84.txt	pg86.txt
 
 
 ==========
@@ -121,12 +147,18 @@ Write the command(s) that you used to do this - as well as its output - below:
 Write the command(s) that you used to do this below:
 ----------
 
+ent-v321-010:~ student$ cd /Users/student/mtec1002-lab-03/books/science-fiction
+ent-v321-010:science-fiction student$ pwd
+/Users/student/mtec1002-lab-03/books/science-fiction
+
 ==========
 OPTIONAL
 13. Immediately change back to the mtec1002-lab-03 folder with a single command using a *relative* path.
 
 Write the command(s) that you used to do this below:
 ----------
+
+ent-v321-010:science-fiction student$ cd ../..
 
 ==========
 OPTIONAL
@@ -135,9 +167,25 @@ OPTIONAL
 Write the command(s) that you used to do this below:
 ----------
 
+ent-v321-010:mtec1002-lab-03 student$ ls -la
+ent-v321-010:mtec1002-lab-03 student$ ls -t
+
 ==========
 OPTIONAL
 15. Create a compressed archive of the logs folder - that is... take the contents of logs and create a single archive (.tar), and compress (.gz)
 
 Write the command(s) that you used to do this below:
 ----------
+
+ent-v321-010:mtec1002-lab-03 student$ tar -cvf logs.tar logs
+a logs
+a logs/.DS_Store
+a logs/access-0.log
+a logs/access-1.log
+a logs/access-10.log
+a logs/access-1
+[etc]
+
+ent-v321-010:mtec1002-lab-03 student$ gzip logs.tar
+ent-v321-010:mtec1002-lab-03 student$ ls
+books		logs		logs.tar.gz	web
